@@ -1,0 +1,25 @@
+extends layout
+
+block content
+    script(src='./javascripts/index.js')
+    .container
+        .chooseGame
+            button#playSolo.btn.btn-primary.btn-lg Play Solo
+            button#multiplayer.btn.btn-primary.btn-lg Multiplayer
+            #multiplayerInput.hidden
+                .container
+                    h2 Create Game
+                    input#nameInput(type='text', placeholder='Type your name')
+                    input#numberOfPlayers(type='text', placeholder='Number of players')
+                    button#startMultiplayer.btn.btn-primary.btn-lg Start
+                .container
+                    h2 Join Game
+                    input#gameCodeInput(type='text', placeholder='Game code from your friend')
+        .game.hidden
+            - var n = 0
+            .inputArea
+                while n < 8
+                    .circle.red
+                    - n++
+            button#makeGuess.btn.btn-primary Make a guess
+            .previewGuesses
